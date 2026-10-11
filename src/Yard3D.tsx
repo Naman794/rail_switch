@@ -113,7 +113,7 @@ export default function Yard3D({game,onSwitch}:{game:Game;onSwitch:()=>void}){
    handle.rotation.z=(s.route-1)*.32;
    const _=clock.getDelta();renderer.render(scene,camera);
   }
-  function resize(){const w=el.clientWidth,h=el.clientHeight;if(!w||!h)return;
+  function resize(){const w=mount.current?.clientWidth??0,h=mount.current?.clientHeight??0;if(!w||!h)return;
    renderer.setSize(w,h,false);const aspect=w/h;
    const halfHeight=8.1;camera.left=-halfHeight*aspect;camera.right=halfHeight*aspect;
    camera.top=halfHeight;camera.bottom=-halfHeight;camera.updateProjectionMatrix();
